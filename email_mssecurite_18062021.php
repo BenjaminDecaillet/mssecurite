@@ -7,9 +7,9 @@ if(empty($_POST['name']))
 }if(empty($_POST['email']))
 {
     $errors .= "\n Error: e mail empty";
-}if(empty($_POST['comments']))
+}if(empty($_POST['message']))
 {
-    $errors .= "\n Error: comment empty";
+    $errors .= "\n Error: message empty";
 }
 
 $name = $_POST['name']; 
@@ -33,7 +33,7 @@ if(empty($errors))
 	$headers = "From: $myemail\n"; 
 	$headers .= "Reply-To: $email_address";
 	
-	//mail($to,$email_subject,$email_body,$headers);
+	mail($to,$email_subject,$email_body,$headers);
 	//redirect to the 'index' page
 	header('Location: https://www.mssecurite.ch/index.html', TRUE, 301);
 } 
